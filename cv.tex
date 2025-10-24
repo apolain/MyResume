@@ -1,0 +1,153 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{libertinus}
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[a4paper,top=1cm,bottom=0.5cm,left=1cm,right=1cm]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+	\begin{tabularx}{\linewidth}{@{} C @{}}
+	\Huge{Paulin Aubert} \\[7.5pt]
+	\href{https://github.com/apolain/}{\raisebox{-0.05\height}\faGithub\ Apolain} \ $|$ \ 
+	\href{https://www.linkedin.com/in/paulinaubert/}{\raisebox{-0.05\height}\faLinkedin\ Paulin Aubert} \ $|$ \ 
+	\href{https://apolain.github.io/}{\raisebox{-0.05\height}\faGlobe \ https://apolain.github.io/} \ $|$ \ 
+	\href{mailto:paulinaubert@orange.fr}{\raisebox{-0.05\height}\faEnvelope \ paulinaubert@orange.fr} \\
+%	\href{tel:+xxxxxxx}{\raisebox{-0.05\height}\faMobile \ +xxxxxxx} \\
+	\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+	\section{Summary}
+	Quantitative Analyst and PhD candidate in Applied Mathematics (defense Dec. 2025), specializing in stochastic control, numerical methods, and machine learning applied to finance.
+	Experienced in developing and implementing quantitative models through a CIFRE PhD bridging academic research and industry, with strong expertise in modeling, simulation, and risk management.
+	
+	%Experience
+	\section{Work Experience}
+
+	\begin{joblong}{Quantitative Consultant \& PhD Candidate -- Exiom Partners}{Nov 2021 - Present}
+	\item PhD researcher focusing on numerical methods for stochastic control, leveraging machine learning and reinforcement learning techniques. Actively involved in writing research papers and presenting results at international conferences.
+	\item Working as a part-time Quant in industry, contributing to several projects in risk and model development:
+		\begin{itemize}
+			\item \textbf{Tier-1 global bank (CCR/XVA team):} Contributing to the development of the pricing library and the automation of monitoring tests. Implementations in Python and C++.
+			\item \textbf{Large French retail bank (team):} Led a C++/C\# library rationalisation project within the ALM team. Designed a new Python library and conducted model reviews and developments covering swap, bond, and swaption pricing, yield-curve stripping, and short-rate model calibration.
+			\item \textbf{Multiple financial institutions (credit risk projects):} Delivered credit-risk projects including the design of credit-scoring grids and the review of provisioning methodologies for non-performing loans.
+		\end{itemize}
+	\item Led the development and maintenance of internal IT tools, including a Django-based planning and recruitment platform and a self-hosted GitLab environment.
+	\end{joblong}
+
+	\begin{jobshort}{Quand intern -- Exiom Partners}{May 2021 - Nov 2021}
+	Conducted research on Default Risk Charge (DRC) requirements under the Fundamental Review of the Trading Book (FRTB) framework.
+	Developed a multi-period Merton model for credit risk analysis and performed theoretical and numerical studies of dependence structures using copula models.
+	\end{jobshort}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+	\section{Education}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}	
+		2022 -- 2025 & \textbf{PhD in Applied Mathematics} — Université Paris-Saclay \\
+		& Thesis: Learning-based numerical methods for stochastic control in finance. \\
+		2019 -- 2021 & \textbf{Master’s Degree in Quantitative Finance} — Université Paris-Saclay
+	\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+	\section{Publications}
+	\begin{refsection}
+	\nocite{*}
+	\printbibliography[heading=none]
+	\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+	\section{Skills}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}
+		\textbf{Quantitative Modeling} & Stochastic control, optimal stopping, market making, credit and counterparty risk (FRTB–DRC, XVA). \\
+		\textbf{Numerical Methods} & Monte Carlo simulation, PDE schemes, function approximation, optimization and calibration techniques. \\
+		\textbf{Programming} & Python (NumPy, Pandas, SciPy, PyTorch) and C++. Software engineering with Git, CI/CD, unit testing, and Linux environments. \\
+		\textbf{Scientific Rigor} & Strong analytical and methodological skills developed through academic research, including paper writing, technical presentations, and structured problem-solving. \\
+		\textbf{Languages} & French (native), English (fluent). 
+	\end{tabularx}
+
+\end{document}
