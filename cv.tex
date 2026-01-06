@@ -61,17 +61,16 @@
     }
 
 \newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
+{
+	\begin{tabularx}{\linewidth}{@{}l X r@{}}
+		\textbf{#1} & \hfill & #2 \\[2pt]
+	\end{tabularx}
+	\begin{itemize}[nosep,leftmargin=1em,itemsep=2pt,label=--]
+	}
+	{
+	\end{itemize}
+}
+
 
 %----------------------------------------------------------------------------------------
 %	BEGIN DOCUMENT
@@ -135,9 +134,9 @@
 			\item Participate in various quantitative projects for financial institutions.
 			\item Conduct exploratory research on learning-based methods for stochastic control, leading to the definition and writing of the doctoral research proposal. \\
 		\end{itemize}
-	\end{joblong}
-	
-	\begin{joblong}{}{}
+%	\end{joblong}
+%	
+%	\begin{joblong}{}{}
 		\item[$\bullet$] \textbf{Internal Tools \& IT Infrastructure} \hfill Nov. 2021 -- Present
 		\begin{itemize}
 			\item Led the design, development, and maintenance of internal IT tools, including a Django-based planning and recruitment platform (Python, HTML, CSS, JavaScript, Azure).
